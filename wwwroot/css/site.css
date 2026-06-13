@@ -1,0 +1,408 @@
+/* =========================================================
+   RockVault — Biblioteca de Música Rock
+   Paleta neón / fluorescente sobre fondo casi negro
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  /* Fondo */
+  --bg: #0a0a12;
+  --bg-alt: #14141f;
+  --bg-card: #1b1b2b;
+  --border: #2c2c40;
+
+  /* Acentos fluorescentes */
+  --neon-pink: #ff2ec4;
+  --neon-green: #39ff88;
+  --neon-yellow: #f4ff36;
+  --neon-cyan: #2af5ff;
+
+  /* Texto */
+  --text: #f4f4fb;
+  --text-dim: #9c9cc0;
+
+  /* Tipografías */
+  --font-display: 'Anton', sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(circle at 18% 15%, rgba(255, 46, 196, 0.10), transparent 40%),
+    radial-gradient(circle at 85% 5%, rgba(42, 245, 255, 0.10), transparent 40%),
+    radial-gradient(circle at 50% 100%, rgba(57, 255, 136, 0.08), transparent 50%);
+  background-attachment: fixed;
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+a {
+  color: var(--neon-cyan);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--neon-cyan);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  background: var(--bg-alt);
+  border-bottom: 2px solid var(--neon-pink);
+  box-shadow: 0 0 20px rgba(255, 46, 196, 0.35);
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.05em;
+  color: var(--neon-green);
+  text-shadow: 0 0 6px var(--neon-green), 0 0 18px rgba(57, 255, 136, 0.55);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.main-nav {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav a {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+  text-decoration: none;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.main-nav a:hover,
+.main-nav a:focus-visible {
+  color: var(--neon-cyan);
+  border-color: var(--neon-cyan);
+  text-shadow: 0 0 8px var(--neon-cyan);
+}
+
+.contact-btn {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #0a0a12;
+  background: var(--neon-yellow);
+  padding: 0.6rem 1.1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  border: 2px dashed #0a0a12;
+  box-shadow: 0 0 14px rgba(244, 255, 54, 0.55);
+  transform: rotate(-2deg);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: inline-block;
+}
+
+.contact-btn:hover,
+.contact-btn:focus-visible {
+  transform: rotate(0deg) scale(1.05);
+  box-shadow: 0 0 22px rgba(244, 255, 54, 0.9);
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+  text-align: center;
+  padding: 3.5rem 1.25rem 3rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--neon-cyan);
+  text-shadow: 0 0 8px rgba(42, 245, 255, 0.6);
+  margin: 0 0 0.5rem;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 9vw, 5.5rem);
+  line-height: 1.05;
+  letter-spacing: 0.03em;
+  margin: 0;
+  color: #ffffff;
+  text-shadow:
+    0 0 6px var(--neon-pink),
+    0 0 18px var(--neon-pink),
+    0 0 38px var(--neon-cyan),
+    0 0 2px #ffffff;
+  animation: flicker 5s infinite;
+}
+
+@keyframes flicker {
+  0%, 92%, 100% { opacity: 1; }
+  93% { opacity: 0.6; }
+  94% { opacity: 1; }
+  95% { opacity: 0.42; }
+  96% { opacity: 1; }
+}
+
+/* Tarjeta tipo "pase de backstage" con la info del proyecto */
+
+.pass-card {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  display: inline-grid;
+  gap: 0.4rem;
+  text-align: left;
+  background: var(--bg-card);
+  border: 2px dashed var(--neon-green);
+  border-radius: 10px;
+  padding: 1.4rem 2rem;
+  margin: 2.25rem auto;
+  max-width: 480px;
+  transform: rotate(-1.5deg);
+  box-shadow: 0 0 18px rgba(57, 255, 136, 0.22);
+  position: relative;
+}
+
+.pass-card::before,
+.pass-card::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: var(--bg);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.pass-card::before { left: -9px; }
+.pass-card::after { right: -9px; }
+
+.pass-card p {
+  margin: 0;
+}
+
+.pass-card .label {
+  color: var(--neon-cyan);
+  font-weight: 700;
+}
+
+.pass-card .pass-sub {
+  margin-top: 0.6rem;
+  padding-top: 0.6rem;
+  border-top: 1px dashed var(--border);
+  color: var(--text-dim);
+  font-size: 0.8rem;
+}
+
+/* Sección "TODO EN UN SOLO ESPACIO" */
+
+.feature-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 5.5vw, 2.75rem);
+  letter-spacing: 0.04em;
+  color: var(--neon-yellow);
+  text-shadow: 0 0 10px rgba(244, 255, 54, 0.6);
+  margin: 3rem 0 0.25rem;
+}
+
+.bounce-arrow {
+  font-size: 2rem;
+  margin: 0;
+  animation: bounce 1.6s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+/* Disco de vinilo + ecualizador */
+
+.media-feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.75rem;
+  margin: 2rem auto 0;
+}
+
+.vinyl {
+  width: min(260px, 65vw);
+  height: auto;
+  filter: drop-shadow(0 0 25px rgba(255, 46, 196, 0.45));
+  animation: spin 9s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.equalizer {
+  display: flex;
+  align-items: flex-end;
+  gap: 7px;
+  height: 60px;
+}
+
+.equalizer span {
+  display: block;
+  width: 9px;
+  height: 60px;
+  border-radius: 4px;
+  transform-origin: bottom;
+  transform: scaleY(0.3);
+  animation-name: bar-pulse;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes bar-pulse {
+  0%, 100% { transform: scaleY(0.25); }
+  50% { transform: scaleY(1); }
+}
+
+.equalizer span:nth-child(1) { background: var(--neon-pink);   animation-duration: 0.9s; animation-delay: 0s; }
+.equalizer span:nth-child(2) { background: var(--neon-cyan);   animation-duration: 1.1s; animation-delay: 0.15s; }
+.equalizer span:nth-child(3) { background: var(--neon-green);  animation-duration: 1.3s; animation-delay: 0.05s; }
+.equalizer span:nth-child(4) { background: var(--neon-yellow); animation-duration: 1.0s; animation-delay: 0.25s; }
+.equalizer span:nth-child(5) { background: var(--neon-pink);   animation-duration: 1.2s; animation-delay: 0.1s; }
+.equalizer span:nth-child(6) { background: var(--neon-cyan);   animation-duration: 0.95s; animation-delay: 0.3s; }
+.equalizer span:nth-child(7) { background: var(--neon-green);  animation-duration: 1.15s; animation-delay: 0.2s; }
+
+/* =========================================================
+   PÁGINAS SECUNDARIAS (Privacy, Error, etc.)
+   ========================================================= */
+
+.page-section {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 4rem;
+}
+
+.page-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 3.25rem);
+  letter-spacing: 0.03em;
+  color: #ffffff;
+  text-shadow: 0 0 6px var(--neon-pink), 0 0 22px rgba(255, 46, 196, 0.5);
+  margin-bottom: 1.5rem;
+}
+
+.text-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--neon-cyan);
+  border-radius: 8px;
+  padding: 1.5rem 1.75rem;
+}
+
+.text-card h2 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--neon-green);
+  text-shadow: 0 0 6px rgba(57, 255, 136, 0.5);
+}
+
+.text-card p + h2 {
+  margin-top: 1.5rem;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.site-footer {
+  margin-top: 2rem;
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  border-top: 2px solid var(--neon-cyan);
+  box-shadow: 0 0 14px rgba(42, 245, 255, 0.2);
+}
+
+.site-footer a {
+  color: var(--neon-pink);
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 640px) {
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .main-nav {
+    gap: 1rem;
+  }
+}
+
+/* =========================================================
+   ACCESIBILIDAD: reducir animaciones
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-title,
+  .vinyl,
+  .equalizer span,
+  .bounce-arrow {
+    animation: none !important;
+  }
+}

@@ -1,0 +1,17 @@
+# Carpetas de compilación de .NET
+bin/
+obj/
+
+# Archivos de Visual Studio / Rider / VS Code
+.vs/
+.vscode/
+*.user
+*.suo
+
+# Configuración local sensible
+appsettings.*.local.json
+secrets.json
+
+# Sistema
+.DS_Store
+Thumbs.db

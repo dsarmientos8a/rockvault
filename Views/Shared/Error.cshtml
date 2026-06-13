@@ -1,0 +1,15 @@
+@model ErrorViewModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<section class="page-section">
+    <h1 class="page-title">Algo se desafinó 🎸</h1>
+    <div class="text-card">
+        <p>Ocurrió un error inesperado al procesar tu solicitud. Intenta recargar la página o vuelve más tarde.</p>
+        @if (Model.ShowRequestId)
+        {
+            <p><strong>Request ID:</strong> <code>@Model.RequestId</code></p>
+        }
+    </div>
+</section>

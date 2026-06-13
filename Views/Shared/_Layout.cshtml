@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - RockVault</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="site-header">
+        <a class="logo" href="/">🎸 RockVault</a>
+
+        <nav>
+            <ul class="main-nav">
+                <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></li>
+            </ul>
+        </nav>
+
+        <a class="contact-btn" href="https://wa.me/50200000000?text=Hola%2C%20vi%20tu%20Biblioteca%20de%20Rock" target="_blank" rel="noopener">
+            💬 Contacto
+        </a>
+    </header>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer class="site-footer">
+        &copy; 2026 - RockVault - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </footer>
+</body>
+</html>
