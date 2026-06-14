@@ -1,0 +1,28 @@
+@model Banda
+@{
+    ViewData["Title"] = Model.Nombre;
+}
+
+<section class="page-section acento-@Model.Acento">
+    <a class="back-link" asp-action="Catalogo">&larr; Volver al catálogo</a>
+
+    <div class="detail-card">
+        <svg class="detail-vinyl" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="60" cy="60" r="58" fill="#0a0a12" stroke="currentColor" stroke-width="2" />
+            <circle cx="60" cy="60" r="46" fill="none" stroke="#ffffff" stroke-opacity="0.06" />
+            <circle cx="60" cy="60" r="34" fill="none" stroke="#ffffff" stroke-opacity="0.06" />
+            <circle cx="60" cy="60" r="20" fill="currentColor" opacity="0.85" />
+            <circle cx="60" cy="60" r="20" fill="none" stroke="currentColor" stroke-width="2" />
+            <circle cx="60" cy="60" r="3" fill="#0a0a12" />
+        </svg>
+
+        <div class="detail-info">
+            <span class="catalog-genre">@Model.Genero · @Model.Pais</span>
+            <h1>@Model.Nombre</h1>
+            <p class="detail-album">
+                Álbum destacado: <strong>@Model.AlbumDestacado</strong> (@Model.Anio)
+            </p>
+            <p>@Model.Descripcion</p>
+        </div>
+    </div>
+</section>

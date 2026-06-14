@@ -1,0 +1,34 @@
+@model List<Banda>
+@{
+    ViewData["Title"] = "Catálogo";
+}
+
+<section class="page-section">
+    <h1 class="page-title">Catálogo de Bandas</h1>
+    <p class="page-intro">
+        Una selección de bandas que marcaron la historia del rock. Haz click en
+        cualquier tarjeta para ver más detalles de la banda y su álbum destacado.
+    </p>
+
+    <div class="catalog-grid">
+        @foreach (var banda in Model)
+        {
+            <a class="catalog-card acento-@banda.Acento" asp-action="Detalle" asp-route-id="@banda.Id">
+                <svg class="catalog-vinyl-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="60" cy="60" r="58" fill="#0a0a12" stroke="currentColor" stroke-width="2" />
+                    <circle cx="60" cy="60" r="46" fill="none" stroke="#ffffff" stroke-opacity="0.06" />
+                    <circle cx="60" cy="60" r="34" fill="none" stroke="#ffffff" stroke-opacity="0.06" />
+                    <circle cx="60" cy="60" r="20" fill="currentColor" opacity="0.85" />
+                    <circle cx="60" cy="60" r="20" fill="none" stroke="currentColor" stroke-width="2" />
+                    <circle cx="60" cy="60" r="3" fill="#0a0a12" />
+                </svg>
+
+                <div class="catalog-info">
+                    <span class="catalog-genre">@banda.Genero</span>
+                    <h2>@banda.Nombre</h2>
+                    <p>@banda.AlbumDestacado · @banda.Anio</p>
+                </div>
+            </a>
+        }
+    </div>
+</section>

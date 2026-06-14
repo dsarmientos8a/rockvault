@@ -23,6 +23,24 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult Catalogo()
+    {
+        var bandas = CatalogoData.ObtenerBandas();
+        return View(bandas);
+    }
+
+    public IActionResult Detalle(int id)
+    {
+        var banda = CatalogoData.ObtenerPorId(id);
+
+        if (banda is null)
+        {
+            return NotFound();
+        }
+
+        return View(banda);
+    }
+
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
